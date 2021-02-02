@@ -1,0 +1,26 @@
+[
+    {
+        "model-name": "Materiais",
+        "resource-file": "materiais.json"
+    },
+    {
+        "model-name": "Leituras",
+        "resource-file": "leituras.json"
+    },
+    {
+        "model-name": "Apresentacoes",
+        "resource-file": "apresentacoes.json"
+    },
+    {
+        "model-name": "Videos",
+        "resource-file": "videos.json"
+    },
+    {
+        "model-name": "Posts",
+        "resource-file": "posts.json"
+    },
+    {
+        "model-name": "Eventos",
+        "resource-file": "eventos.json"
+    }
+]

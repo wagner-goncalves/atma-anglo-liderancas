@@ -1,0 +1,43 @@
+<IfModule mod_rewrite.c>
+
+
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+    # Apache config
+    <FilesMatch ".(eot|ttf|otf|woff|svg|svgz)">
+    Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+
+Header set Access-Control-Allow-Origin "*"
+    AddType application/vnd.ms-fontobject eot
+    AddType font/truetype ttf
+    AddType application/x-font-woff woff
+
+    
+
+</IfModule>
+
+
+<FilesMatch "\.(ttf|otf|eot|woff)$">
+  <IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+  </IfModule>
+</FilesMatch>

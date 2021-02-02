@@ -1,0 +1,39 @@
+.error-help-block{
+    color: red;
+}
+.titulo-destaque{
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+.grey-icon{
+    color:#ccc !important;
+}
+
+.transparent {
+    background-color: transparent !important;
+    box-shadow: inset 0px 1px 0 rgba(0,0,0,.075);
+ }
+
+ .left-border-none {
+    border-left:none !important;
+    box-shadow: inset 0px 1px 0 rgba(0,0,0,.075);
+ }
+
+
+ .btn-success {
+    background-color: #66cc33 !important;
+    
+}
+
+.bg-banner{
+    background-color: rgb(71, 71, 71); 
+}
+
+.bg-aldeia{
+    background-color: #fff;
+}
+ 
+.bg-info-aldeia{
+    background-color: #c84567;
+}
