@@ -20,6 +20,7 @@ try {
  */
 
 window.axios = require('axios');
+window.datetimepicker = require('pc-bootstrap4-datetimepicker');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 

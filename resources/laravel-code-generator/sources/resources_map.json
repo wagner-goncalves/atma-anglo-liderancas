@@ -4,10 +4,6 @@
         "resource-file": "materiais.json"
     },
     {
-        "model-name": "Leituras",
-        "resource-file": "leituras.json"
-    },
-    {
         "model-name": "Apresentacoes",
         "resource-file": "apresentacoes.json"
     },
@@ -22,5 +18,9 @@
     {
         "model-name": "Eventos",
         "resource-file": "eventos.json"
+    },
+    {
+        "model-name": "Leituras",
+        "resource-file": "leituras.json"
     }
 ]

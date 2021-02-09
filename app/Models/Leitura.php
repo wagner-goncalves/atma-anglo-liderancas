@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
 
 class Leitura extends Model
 {
     
+    use Sortable;
 
     /**
      * The database table used by the model.
@@ -68,7 +70,7 @@ class Leitura extends Model
      */
     public function getCreatedAtAttribute($value)
     {
-        return \DateTime::createFromFormat($this->getDateFormat(), $value)->format('j/n/Y g:i A');
+        return \DateTime::createFromFormat($this->getDateFormat(), $value)->format('d/m/Y H:i:s');
     }
 
     /**
@@ -79,7 +81,7 @@ class Leitura extends Model
      */
     public function getUpdatedAtAttribute($value)
     {
-        return \DateTime::createFromFormat($this->getDateFormat(), $value)->format('j/n/Y g:i A');
+        return \DateTime::createFromFormat($this->getDateFormat(), $value)->format('d/m/Y H:i:s');
     }
 
 }

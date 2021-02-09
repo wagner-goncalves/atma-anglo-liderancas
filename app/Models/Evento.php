@@ -3,10 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
 
 class Evento extends Model
 {
-    
+    use Sortable;
 
     /**
      * The database table used by the model.
@@ -60,7 +61,7 @@ class Evento extends Model
      */
     public function setDataInicioAttribute($value)
     {
-        $this->attributes['data_inicio'] = !empty($value) ? \DateTime::createFromFormat('[% date_format %]', $value) : null;
+        $this->attributes['data_inicio'] = !empty($value) ? \DateTime::createFromFormat('d/m/Y', $value) : null;
     }
 
     /**
@@ -71,7 +72,7 @@ class Evento extends Model
      */
     public function setDataFimAttribute($value)
     {
-        $this->attributes['data_fim'] = !empty($value) ? \DateTime::createFromFormat('[% date_format %]', $value) : null;
+        $this->attributes['data_fim'] = !empty($value) ? \DateTime::createFromFormat('d/m/Y', $value) : null;
     }
 
     /**
@@ -82,6 +83,7 @@ class Evento extends Model
      */
     public function getDataInicioAttribute($value)
     {
+        if(empty($value)) return "";
         return \DateTime::createFromFormat($this->getDateFormat(), $value)->format('d/m/Y');
     }
 
@@ -93,6 +95,7 @@ class Evento extends Model
      */
     public function getDataFimAttribute($value)
     {
+        if(empty($value)) return "";
         return \DateTime::createFromFormat($this->getDateFormat(), $value)->format('d/m/Y');
     }
 

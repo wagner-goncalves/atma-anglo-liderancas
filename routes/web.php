@@ -90,8 +90,8 @@ Route::group(['middleware' => ['auth']], function() {
 Route::group([
     'prefix' => 'eventos',
 ], function () {
-    Route::get('/', [EventosController::class, 'index'])
-         ->name('eventos.evento.index');
+     Route::get('/', [EventosController::class, 'index'])
+     ->name('eventos.evento.index');
     Route::get('/create',[EventosController::class, 'create'])
          ->name('eventos.evento.create');
     Route::get('/show/{evento}',[EventosController::class, 'show'])
@@ -100,8 +100,35 @@ Route::group([
          ->name('eventos.evento.edit')->where('id', '[0-9]+');
     Route::post('/', [EventosController::class, 'store'])
          ->name('eventos.evento.store');
-    Route::put('evento/{evento}', [EventosController::class, 'update'])
+    Route::patch('evento/{evento}', [EventosController::class, 'update'])
          ->name('eventos.evento.update')->where('id', '[0-9]+');
     Route::delete('/evento/{evento}',[EventosController::class, 'destroy'])
          ->name('eventos.evento.destroy')->where('id', '[0-9]+');
+     Route::get('/{evento}/download', [EventosController::class, 'download'])
+         ->name('eventos.evento.download')->where('id', '[0-9]+');
+     Route::post('/exportar', [EventosController::class, 'exportar'])
+         ->name('eventos.evento.exportar');
+});
+
+Route::group([
+    'prefix' => 'leituras',
+], function () {
+    Route::get('/', [LeiturasController::class, 'index'])
+         ->name('leituras.leitura.index');
+    Route::get('/create',[LeiturasController::class, 'create'])
+         ->name('leituras.leitura.create');
+    Route::get('/show/{leitura}',[LeiturasController::class, 'show'])
+         ->name('leituras.leitura.show')->where('id', '[0-9]+');
+    Route::get('/{leitura}/edit',[LeiturasController::class, 'edit'])
+         ->name('leituras.leitura.edit')->where('id', '[0-9]+');
+    Route::post('/', [LeiturasController::class, 'store'])
+         ->name('leituras.leitura.store');
+    Route::patch('leitura/{leitura}', [LeiturasController::class, 'update'])
+         ->name('leituras.leitura.update')->where('id', '[0-9]+');
+    Route::delete('/leitura/{leitura}',[LeiturasController::class, 'destroy'])
+         ->name('leituras.leitura.destroy')->where('id', '[0-9]+');
+     Route::get('/{leitura}/download', [LeiturasController::class, 'download'])
+         ->name('leituras.leitura.download')->where('id', '[0-9]+');      
+     Route::post('/exportar', [LeiturasController::class, 'exportar'])
+         ->name('leituras.leitura.exportar');   
 });
